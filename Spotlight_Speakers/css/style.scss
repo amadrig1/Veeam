@@ -1,0 +1,97 @@
+@import 'base';
+@import 'responsive';
+@import 'popup';
+
+// Title
+h1 { 
+	font-size: min(max(25px, calc(1.5625rem + ((1vw - 3.2px) * 2.6042))), 50px);
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 4%;
+	&::after {
+		content: '';
+		display: block;
+		margin: 2.6% auto 0;
+		width: 7%;
+		height: 19px;
+		opacity: 18%;
+		background: url("data:image/svg+xml,%3Csvg width='46' height='19' viewBox='0 0 46 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24.2454 15.3365C23.5584 16.0289 22.4456 16.0292 21.7589 15.3365L6.54199 0L0 6.60671L8.80342 15.4655C10.4413 17.1138 12.6597 18.0392 14.9725 18.0392H31.0279C33.3403 18.0392 35.5587 17.1138 37.1966 15.4655L46 6.60671L39.458 0L24.2454 15.3365Z' fill='%2300D15F'/%3E%3C/svg%3E%0A");
+		background-size: contain;
+	    background-repeat: no-repeat;
+	    background-position: center;
+	}
+}
+
+// Speakers
+#speakers {
+	text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include breakpoint(medium) {
+    	justify-content: space-around;
+    }
+	.speaker {
+		width: 23%;
+    	margin-bottom: 5.2%;
+		.photo {
+			margin-bottom: 11.3%;
+			cursor: pointer;
+			position: relative;
+			transition:all 0.3s ease-in-out;
+			img {
+				width: 100%;
+			}
+			&::after {
+				content: '\002B';
+				display: block;
+				color: #fff;
+				background: #00d15f;
+				line-height: 37px;
+				font-size: 30px;
+				font-weight: bold;
+				width: 40px;
+				height: 40px;
+				border-radius: 100%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateY(-50%) translateX(-50%);
+				opacity: 0;
+				transition:all 0.3s ease-in-out;
+			}
+			&:hover {
+				opacity: 0.7;
+				&::after {
+					opacity: 1;
+				}
+			}
+			@include breakpoint(medium) {
+			    margin-bottom: 5.5%;
+			}
+		}
+		@include breakpoint(medium) {
+		    width: 30%;
+		}
+		@include breakpoint(small) {
+		    width: 45%;
+		}
+	}
+
+	.info {
+		%spacing {
+			margin-bottom: 5%;
+		}
+		h2 {
+			@extend %spacing;
+			color: #232323;
+			font-size: min(max(14px, calc(0.875rem + ((1vw - 3.2px) * 1.4583))), 28px);
+			font-weight: bold;
+		}
+		p {
+			@extend %spacing;
+			color: #505861;
+			font-size: min(max(12px, calc(0.75rem + ((1vw - 3.2px) * 0.8333))), 20px);
+		}
+	}
+}

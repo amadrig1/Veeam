@@ -1,0 +1,55 @@
+// Variables
+$mainFont: Tahoma, "Trebuchet MS", sans-serif;
+$primaryColor: #232323;
+$transition-duration: 300ms;
+
+
+// Reset
+*, *:before, *:after{
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+}
+
+// General
+html {
+	scroll-behavior: smooth;
+	.noscroll {
+		overflow: hidden;
+	}
+}
+
+body { 
+	background: #ffffff;
+	font-family: $mainFont;
+	color: $primaryColor;
+	.noscroll {
+		overflow: visible;
+		height: 100%;
+	}
+}
+
+.wrapper {
+	width: 100%;
+	max-width: 1280px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.container {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 9% 2%;
+	z-index: 10;
+	position: relative;
+}

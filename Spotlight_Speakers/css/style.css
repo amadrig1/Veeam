@@ -1,0 +1,191 @@
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none; }
+
+html {
+  scroll-behavior: smooth; }
+  html .noscroll {
+    overflow: hidden; }
+
+body {
+  background: #ffffff;
+  font-family: Tahoma, "Trebuchet MS", sans-serif;
+  color: #232323; }
+  body .noscroll {
+    overflow: visible;
+    height: 100%; }
+
+.wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative; }
+
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9% 2%;
+  z-index: 10;
+  position: relative; }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease-in, visibility 0ms linear 300ms;
+  z-index: 9998; }
+  .overlay.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 300ms ease-in, visibility 0ms linear 0ms; }
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 70vh;
+  width: 90%;
+  max-width: 810px;
+  border: 4px solid #000;
+  border-radius: 16px;
+  background-image: url(../images/SpeakerBioModal.jpg);
+  background-repeat: repeat;
+  z-index: 9999;
+  overflow-y: auto;
+  transition: opacity 300ms ease-in;
+  opacity: 0;
+  color: #ffffff;
+  scrollbar-width: thin;
+  scrollbar-color: #00d15f rgba(0, 0, 0, 0); }
+  .popup::-webkit-scrollbar {
+    width: 16px; }
+  .popup::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0); }
+  .popup::-webkit-scrollbar-thumb {
+    background-color: #00d15f;
+    border-radius: 10px;
+    border: 9px double rgba(0, 0, 0, 0); }
+  .popup.show {
+    opacity: 1; }
+  .popup .popup-Header {
+    position: relative;
+    border-bottom: 4px solid #8e71f4; }
+    .popup .popup-Header h2 {
+      font-size: min(max(20px, calc(1.25rem + ((1vw - 3.2px) * 1.6667))), 36px);
+      font-weight: bold;
+      padding: 13px 10% 17px 4%; }
+    .popup .popup-Header .close {
+      cursor: pointer;
+      color: red;
+      position: absolute;
+      top: calc(50% - 24px);
+      right: 1%;
+      display: block;
+      width: 48px;
+      height: 48px;
+      background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M31.0312 28.9688C31.6406 29.5312 31.6406 30.5156 31.0312 31.0781C30.75 31.3594 30.375 31.5 30 31.5C29.5781 31.5 29.2031 31.3594 28.9219 31.0781L24 26.1562L19.0312 31.0781C18.75 31.3594 18.375 31.5 18 31.5C17.5781 31.5 17.2031 31.3594 16.9219 31.0781C16.3125 30.5156 16.3125 29.5312 16.9219 28.9688L21.8438 24L16.9219 19.0781C16.3125 18.5156 16.3125 17.5312 16.9219 16.9688C17.4844 16.3594 18.4688 16.3594 19.0312 16.9688L24 21.8906L28.9219 16.9688C29.4844 16.3594 30.4688 16.3594 31.0312 16.9688C31.6406 17.5312 31.6406 18.5156 31.0312 19.0781L26.1094 24.0469L31.0312 28.9688Z' fill='white'/%3E%3C/svg%3E%0A");
+      background-size: contain; }
+  .popup .popupBody {
+    padding: 30px 0 0 4%;
+    width: 85%; }
+    .popup .popupBody p {
+      font-size: min(max(14px, calc(0.875rem + ((1vw - 3.2px) * 1.0417))), 24px);
+      line-height: 1.2;
+      padding-bottom: 5%; }
+    @media (max-width: 900px) {
+      .popup .popupBody {
+        width: 95%; } }
+
+h1 {
+  font-size: min(max(25px, calc(1.5625rem + ((1vw - 3.2px) * 2.6042))), 50px);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 4%; }
+  h1::after {
+    content: '';
+    display: block;
+    margin: 2.6% auto 0;
+    width: 7%;
+    height: 19px;
+    opacity: 18%;
+    background: url("data:image/svg+xml,%3Csvg width='46' height='19' viewBox='0 0 46 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24.2454 15.3365C23.5584 16.0289 22.4456 16.0292 21.7589 15.3365L6.54199 0L0 6.60671L8.80342 15.4655C10.4413 17.1138 12.6597 18.0392 14.9725 18.0392H31.0279C33.3403 18.0392 35.5587 17.1138 37.1966 15.4655L46 6.60671L39.458 0L24.2454 15.3365Z' fill='%2300D15F'/%3E%3C/svg%3E%0A");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; }
+
+#speakers {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  @media (max-width: 900px) {
+    #speakers {
+      justify-content: space-around; } }
+  #speakers .speaker {
+    width: 23%;
+    margin-bottom: 5.2%; }
+    #speakers .speaker .photo {
+      margin-bottom: 11.3%;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease-in-out; }
+      #speakers .speaker .photo img {
+        width: 100%; }
+      #speakers .speaker .photo::after {
+        content: '\002B';
+        display: block;
+        color: #fff;
+        background: #00d15f;
+        line-height: 37px;
+        font-size: 30px;
+        font-weight: bold;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        opacity: 0;
+        transition: all 0.3s ease-in-out; }
+      #speakers .speaker .photo:hover {
+        opacity: 0.7; }
+        #speakers .speaker .photo:hover::after {
+          opacity: 1; }
+      @media (max-width: 900px) {
+        #speakers .speaker .photo {
+          margin-bottom: 5.5%; } }
+    @media (max-width: 900px) {
+      #speakers .speaker {
+        width: 30%; } }
+    @media (max-width: 600px) {
+      #speakers .speaker {
+        width: 45%; } }
+  #speakers .info h2, #speakers .info p {
+    margin-bottom: 5%; }
+  #speakers .info h2 {
+    color: #232323;
+    font-size: min(max(14px, calc(0.875rem + ((1vw - 3.2px) * 1.4583))), 28px);
+    font-weight: bold; }
+  #speakers .info p {
+    color: #505861;
+    font-size: min(max(12px, calc(0.75rem + ((1vw - 3.2px) * 0.8333))), 20px); }
+
+/*# sourceMappingURL=style.css.map */

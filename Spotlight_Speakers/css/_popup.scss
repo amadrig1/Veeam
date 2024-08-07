@@ -1,0 +1,88 @@
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity $transition-duration ease-in, visibility 0ms linear $transition-duration;
+	z-index: 9998;
+	&.show {
+		opacity: 1;
+		visibility: visible;
+		transition: opacity $transition-duration ease-in, visibility 0ms linear 0ms;
+	}
+}
+
+.popup {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-height: 70vh;
+	width: 90%;
+	max-width: 810px;
+	border: 4px solid #000;
+	border-radius: 16px;
+	background-image: url(../images/SpeakerBioModal.jpg);
+	background-repeat: repeat;
+	z-index: 9999;
+	overflow-y: auto;
+	transition: opacity $transition-duration ease-in;
+	opacity: 0;
+	color: #ffffff;
+	scrollbar-width: thin;
+	scrollbar-color: #00d15f rgba(0,0,0,0);
+	&::-webkit-scrollbar {
+		width: 16px;
+	}
+	&::-webkit-scrollbar-track {
+		background: rgba(0,0,0,0);
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #00d15f;
+		border-radius: 10px;
+		border: 9px double rgba(0,0,0,0);
+	}
+	&.show {
+		opacity: 1;
+	}
+	
+	.popup-Header {
+		position: relative;
+		border-bottom: 4px solid #8e71f4;
+		h2 {
+			font-size: min(max(20px, calc(1.25rem + ((1vw - 3.2px) * 1.6667))), 36px);
+			font-weight: bold;
+			padding: 13px 10% 17px 4%;
+		}
+		.close {
+			cursor: pointer;
+			color: red;
+			position: absolute;
+			top: calc(50% - 24px);
+			right: 1%;
+			display: block;
+			width: 48px;
+			height: 48px;
+			background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M31.0312 28.9688C31.6406 29.5312 31.6406 30.5156 31.0312 31.0781C30.75 31.3594 30.375 31.5 30 31.5C29.5781 31.5 29.2031 31.3594 28.9219 31.0781L24 26.1562L19.0312 31.0781C18.75 31.3594 18.375 31.5 18 31.5C17.5781 31.5 17.2031 31.3594 16.9219 31.0781C16.3125 30.5156 16.3125 29.5312 16.9219 28.9688L21.8438 24L16.9219 19.0781C16.3125 18.5156 16.3125 17.5312 16.9219 16.9688C17.4844 16.3594 18.4688 16.3594 19.0312 16.9688L24 21.8906L28.9219 16.9688C29.4844 16.3594 30.4688 16.3594 31.0312 16.9688C31.6406 17.5312 31.6406 18.5156 31.0312 19.0781L26.1094 24.0469L31.0312 28.9688Z' fill='white'/%3E%3C/svg%3E%0A");
+			background-size: contain;
+		}
+	}
+	
+	.popupBody {
+		padding: 30px 0 0 4%;
+    	width: 85%;
+		p {
+			font-size: min(max(14px, calc(0.875rem + ((1vw - 3.2px) * 1.0417))), 24px);
+			line-height: 1.2;
+			padding-bottom: 5%;
+		}
+		@include breakpoint(medium) {
+	    	width: 95%;
+	    }
+	}
+}
